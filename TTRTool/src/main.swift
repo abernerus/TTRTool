@@ -22,3 +22,7 @@ graph.addEdge(a, neighbor: c, weight: 5);
 var path : Path? = graph.processDijkstra(a, destination: c)
 
 println(path?.total)
+
+
+
+var mapReader = MapReader(mapName: "test");
