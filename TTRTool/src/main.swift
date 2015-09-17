@@ -9,20 +9,14 @@
 import Foundation
 
 
-println("Hello, World!")
-
-var graph:Graph = Graph()
-var a = graph.addVertex("A")
-var b = graph.addVertex("B")
-var c = graph.addVertex("C")
-graph.addEdge(a, neighbor: b, weight: 2);
-graph.addEdge(b, neighbor: c, weight: 2);
-graph.addEdge(a, neighbor: c, weight: 5);
-
-var path : Path? = graph.processDijkstra(a, destination: c)
-
-println(path?.total)
-
+print("Hello, World!")
 
 
 var mapReader = MapReader(mapName: "test");
+var graph = mapReader.readMap()
+var path:Path = graph.calculateShortestPath("StationA", station2: "StationC")!
+print("\n\n")
+print("Total length: " + String(path.totalLength))
+for vertex in path.stations {
+    print(vertex.key)
+}

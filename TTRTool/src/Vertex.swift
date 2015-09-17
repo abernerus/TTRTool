@@ -5,10 +5,23 @@
 
 import Foundation
 
-class Vertex {
-    var key: String?
-    var neighbors: Array<Edge>
-    init() {
-        self.neighbors = Array<Edge>()
+class Vertex: Hashable {
+    var key: String!
+    
+    init(key:String) {
+        self.key = key
     }
+    
+    func equals(vertex: Vertex) -> Bool {
+        return vertex.key == self.key
+    }
+    
+    var hashValue: Int {
+        return self.key.hashValue
+    }
+}
+
+func ==(lhs: Vertex, rhs: Vertex) -> Bool {
+    let areEqual = lhs.key == rhs.key
+    return areEqual
 }

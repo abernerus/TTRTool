@@ -9,25 +9,39 @@
 import Foundation
 
 class MapReader {
+    let content:String
     
     init(mapName:String) {
         let bundle = NSBundle.mainBundle()
         let path = bundle.pathForResource("test", ofType: "map", inDirectory: "resources")
-        let content = String(contentsOfFile: path!, encoding: NSUTF8StringEncoding, error: nil)!
+        content = try! String(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
+    }
+    
+    func readMap() -> Graph {
+        let myStringArr = content.componentsSeparatedByString("\n")
         
-        var myStringArr = content.componentsSeparatedByString("\n")
+        var vertexes = Set<Vertex>()
+        var edges = Set<Edge>()
         
         for route in myStringArr {
-            println(route)
-            let nsString = route as NSString
+            print(route)
+            let routeData = route.routeData()
+            print("start="+routeData[0])
+            print("length="+routeData[1])
+            print("color="+routeData[2])
+            print("end="+routeData[3])
             
-            let regex = NSRegularExpression(pattern: "([A-Za-z]+) \\-([0-9]{1})([rgbyopxwz]{1}) ([A-Za-z]+)", options: nil, error: nil)
-            let results = regex!.matchesInString(route, options: nil, range: NSMakeRange(0, nsString.length)) as! [NSTextCheckingResult]
-            map(results) {
-                println(nsString.substringWithRange(route.substringWithRange($0.range)))
-            }
+            let a = Vertex(key: routeData[0])
+            let b = Vertex(key: routeData[3])
             
+            let e = Edge(id: route, source: a, destination: b, weight: Int(routeData[1])!)
+            
+            vertexes.insert(a)
+            vertexes.insert(b)
+            edges.insert(e)
         }
+        
+        return Graph(vertexes: vertexes, edges: edges)
     }
     
 }
