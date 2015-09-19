@@ -35,10 +35,12 @@ class MapReader {
             let b = Vertex(key: routeData[3])
             
             let e = Edge(id: route, source: a, destination: b, weight: Int(routeData[1])!)
+            let e2 = Edge(id: route+"back", source: b, destination: a, weight: Int(routeData[1])!)
             
             vertexes.insert(a)
             vertexes.insert(b)
             edges.insert(e)
+            edges.insert(e2)
         }
         
         return Graph(vertexes: vertexes, edges: edges)
