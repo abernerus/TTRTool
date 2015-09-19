@@ -49,6 +49,7 @@
 		E133ECD51BA757E500894E91 /* resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = resources; sourceTree = "<group>"; };
 		E133ECD61BA7591000894E91 /* MapReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapReader.swift; sourceTree = "<group>"; };
 		E135B90C1BAB3AC90035FC88 /* Path.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
+		E139B93D1BAD6A020036DE17 /* play.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = play.playground; sourceTree = "<group>"; };
 		E1C5F24C1BA9EF7400E2EE8B /* DijkstraAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DijkstraAlgorithm.swift; sourceTree = "<group>"; };
 		E1F49A5D1BA87529005FC2C6 /* RegexHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +94,7 @@
 				E1F49A5D1BA87529005FC2C6 /* RegexHelpers.swift */,
 				E1C5F24C1BA9EF7400E2EE8B /* DijkstraAlgorithm.swift */,
 				E135B90C1BAB3AC90035FC88 /* Path.swift */,
+				E139B93D1BAD6A020036DE17 /* play.playground */,
 			);
 			path = src;
 			sourceTree = "<group>";

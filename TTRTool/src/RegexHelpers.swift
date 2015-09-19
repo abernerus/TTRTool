@@ -20,4 +20,8 @@ extension String {
         let endStation = (self as NSString).substringWithRange(NSRange(match!.rangeAtIndex(4).toRange()!))
         return [startStation, pathLength, pathColor, endStation]
     }
+    
+    func removeNewlines() -> String {
+        return self.stringByReplacingOccurrencesOfString("\n", withString: "")
+    }
 }
